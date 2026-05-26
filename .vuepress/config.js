@@ -1,11 +1,11 @@
 import { defineUserConfig } from "vuepress";
-import { viteBundler } from '@vuepress/bundler-vite'
+import { viteBundler } from "@vuepress/bundler-vite";
 import { defaultTheme } from "@vuepress/theme-default";
 import markdownItTaskLists from "markdown-it-task-lists";
 import { searchPlugin } from "@vuepress/plugin-search";
-import { shikiPlugin } from '@vuepress/plugin-shiki'
+import { shikiPlugin } from "@vuepress/plugin-shiki";
 
-const base = "/bilibili-API-collect/";
+const base = "/bilibili-API-collect-next/";
 
 export default defineUserConfig({
   bundler: viteBundler(),
@@ -44,21 +44,38 @@ export default defineUserConfig({
     editLinkText: "在 GitHub 上编辑此页",
     colorMode: "auto",
     themePlugins: {
-      prismjs: false
-    }
+      prismjs: false,
+    },
   }),
   plugins: [
     searchPlugin({}),
     shikiPlugin({
-      theme: 'dark-plus',
+      theme: "dark-plus",
       langs: [
-        'javascript', 'typescript', 'markdown', 'protobuf', 'json', 'jsonc',
-        'shell', 'go', 'html', 'http', 'java', 'kotlin', 'python', 'rust', 'c',
-        'c++', 'cs', 'php', 'swift', 'text'
-      ]
-    })
+        "javascript",
+        "typescript",
+        "markdown",
+        "protobuf",
+        "json",
+        "jsonc",
+        "shell",
+        "go",
+        "html",
+        "http",
+        "java",
+        "kotlin",
+        "python",
+        "rust",
+        "c",
+        "c++",
+        "cs",
+        "php",
+        "swift",
+        "text",
+      ],
+    }),
   ],
   extendsMarkdown: (md) => {
     md.use(markdownItTaskLists);
-  }
+  },
 });
