@@ -927,7 +927,8 @@ curl -G 'https://member.bilibili.com/x/vupre/web/tag/recommend' \
 | cover  | str  | 视频封面 URL | 非必要   | 如果不传会自动取封面，参见[上传视频封面](#上传视频封面) |
 | cover43 | str  | 视频封面 URL (比例为 4:3) | 非必要   | 可为空 |
 | title  | str  | 视频标题 | 必要   | 最多 80 字 |
-| copyright | num  | 1: 自制<br />2: 转载 | 必要   |      |
+| copyright | num  | 1: 自制<br />2: 转载<br />3: 其他 | 必要   |      |
+| creation_statement| object| 创作申明   |可为空 | `{ id: -1 }`，当`copyright=1`时选填，`copyright=3`必填 |
 | tid    | num  | 分区 ID | 必要   | Web端此参数已无法手动设置，参数值为从[预测稿件类型](#预测稿件类型)中获取第一个固定id     |
 | human_type2 | num  | 新分区ID | 非必要| 从 [新分区ID](#获取新分区ID) 获取 |
 | tag    | str  | 视频标签 | 必要   | 多个标签用 `,` 分隔, 最多 10 个 |
@@ -968,6 +969,32 @@ curl -G 'https://member.bilibili.com/x/vupre/web/tag/recommend' \
 | ------ | ---- | -------- | ------ | ---- |
 | open | num  | 是否启用字幕投稿 | 必要   | 0: 启用(默认)<br />1: 不启用  |
 | lan | str  | 字幕投稿语言 | 必要   | 可为空 |
+
+`creation_statement` 支持的参数
+```js
+[
+  {
+    id: -1,
+    name: "内容无需标注",
+  },
+  {
+    id: 1,
+    name: "含AI生成内容",
+  },
+  {
+    id: 2,
+    name: "含虚构演绎内容",
+  },
+  {
+    id: 3,
+    name: "内容含营销信息",
+  },
+  {
+    id: 4,
+    name: "个人观点，仅供参考",
+  },
+]
+```
 
 **desc_v2举例：**
 
@@ -1091,7 +1118,8 @@ curl -X POST --url "https://member.bilibili.com/x/vu/web/add/v3" \
 | title  | str  | 视频标题 | 必要   | 最多 80 字 |
 | cover  | str  | 视频封面 URL | 非必要   | 如果不传会自动取封面，参见[上传视频封面](#上传视频封面) |
 | cover43 | str  | 视频封面 URL (比例为 4:3) | 非必要   | 可为空 |
-| copyright | num  | 1: 自制<br />2: 转载 | 必要   |      |
+| copyright | num  | 1: 自制<br />2: 转载<br />3: 其他 | 必要   |      |
+| creation_statement| object| 创作申明   |可为空 | `{ id: -1 }`，当`copyright=1`时选填，`copyright=3`必填，见创建稿件 |
 | tid    | num  | 分区 ID | 必要   |      |
 | tag    | str  | 视频标签 | 必要   | 多个标签用 `,` 分隔, 最多 10 个 |
 | desc_format_id | num  | 简介格式 ID? | 必要   | 9999: 纯文本 |
