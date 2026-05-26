@@ -39,7 +39,7 @@ export default defineUserConfig({
         ],
       },
     ],
-    repo: "https://github.com/SocialSisterYi/bilibili-API-collect",
+    repo: "https://github.com/renmu123/bilibili-API-collect-next",
     docsBranch: "master",
     editLinkText: "在 GitHub 上编辑此页",
     colorMode: "auto",

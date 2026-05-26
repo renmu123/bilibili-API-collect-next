@@ -26,11 +26,6 @@
 2. Discussion 正文应对遇到的问题进行尽可能详细的描述，展开并聚焦有关的信息，例如： “按照文档中某位置的说明进行了某操作，为什么无法获得预期结果”、“请问某 API 的某字段的具体含义是什么”
 3. 提出问题时注意[提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)并且[别像弱智一样提问](https://github.com/tangx/Stop-Ask-Questions-The-Stupid-Ways)
 
-同时，您还可以通过加入社群的方式参与讨论
-
-- QQ 交流群：[邀请链接](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=ympvb3LAPT-Ulu3ezhGqbkJ8zXMKImOX&authKey=z1KdkOdKO3wytN43m9K6On9nBtnDL4pAoD6VQHCipFBb9TasNDKuDHCmOE6TF3uc&noverify=0&group_code=191187164)
-- Telegram 交流群：[@bilibili_API_collect_community](https://t.me/bilibili_API_collect_community)
-
 ::: tip 提示
 
 QQ 交流群为综合技术交流群（兼 Owner 的粉丝群），可交流探讨任何技术，包括但不限于 [BAC 项目](https://github.com/SocialSisterYi/bilibili-API-collect)
@@ -108,11 +103,11 @@ Telegram 交流群主要用作 [BAC 项目](https://github.com/SocialSisterYi/bi
 e.g.：
 
 ```markdown
-## 获取视频详细信息_web端
+## 获取视频详细信息\_web端
 
 > https://api.bilibili.com/x/web-interface/view
 
-*请求方法: GET*
+_请求方法: GET_
 
 认证方式: Cookie (SESSDATA)
 
@@ -160,11 +155,11 @@ e.g.：
 
 `data` 中的 `pages` 数组：
 
-| 项   | 类型 | 内容            | 备注          |
-| ---- | ---- | --------------- | ------------- |
-| 0    | obj  | 1P 视频内容     | 无分 P 仅有此项 |
-| n    | obj  | (n+1)P 视频内容 |               |
-| ……   | obj  | ……              | ……            |
+| 项  | 类型 | 内容            | 备注            |
+| --- | ---- | --------------- | --------------- |
+| 0   | obj  | 1P 视频内容     | 无分 P 仅有此项 |
+| n   | obj  | (n+1)P 视频内容 |                 |
+| ……  | obj  | ……              | ……              |
 
 **示例**部分位于所有**响应正文**部分下方，需要**加粗**格式，分为请求命令示例与响应体示例两部分
 
@@ -204,7 +199,7 @@ curl -G 'https://api.bilibili.com/x/web-interface/view' \
     "tname": "原创音乐",
     "copyright": 1,
     // ...
-  }
+  },
 }
 ```
 
@@ -221,14 +216,14 @@ curl -G 'https://api.bilibili.com/x/web-interface/view' \
 
 e.g.：
 
-| 值   | 含义          | 备注                                                         |
-| ---- | ------------- | ------------------------------------------------------------ |
-| 6    | 240P 极速     | 仅 MP4 格式支持<br />仅 `platform=html5` 时有效              |
-| 16   | 360P 流畅     |                                                              |
-| 32   | 480P 清晰     |                                                              |
-| 64   | 720P 高清     | WEB 端默认值<br />B 站前端需要登录才能选择，但是直接发送请求可以不登录就拿到 720P 的取流地址<br />**无 720P 时则为 720P60** |
-| 74   | 720P60 高帧率 | 需要登录认证                                                 |
-| 80   | 1080P 高清    | TV 端与 APP 端默认值<br />需要登录认证                       |
+| 值  | 含义          | 备注                                                                                                                        |
+| --- | ------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| 6   | 240P 极速     | 仅 MP4 格式支持<br />仅 `platform=html5` 时有效                                                                             |
+| 16  | 360P 流畅     |                                                                                                                             |
+| 32  | 480P 清晰     |                                                                                                                             |
+| 64  | 720P 高清     | WEB 端默认值<br />B 站前端需要登录才能选择，但是直接发送请求可以不登录就拿到 720P 的取流地址<br />**无 720P 时则为 720P60** |
+| 74  | 720P60 高帧率 | 需要登录认证                                                                                                                |
+| 80  | 1080P 高清    | TV 端与 APP 端默认值<br />需要登录认证                                                                                      |
 
 ## Proto 定义格式
 
@@ -267,6 +262,7 @@ message Author {
 提交的标题不要使用默认的 `Update xxx`, 请遵循 [Conventional Commits (约定式提交) 规范](https://www.conventionalcommits.org/zh-hans/v1.0.0/), 标题语言可根据个人习惯
 
 <!--下面这两段属于常识, 但好像还有人不知道-->
+
 当发现远程与本地仓库不一致时, 若你操作的 fork 的 branch 无打开的 PR, 建议使用变基拉取, 而不是生成一个额外的合并提交的合并拉取, 反之则相反
 
 移动文件请使用 `git mv`, 而不是删除并添加同一个文件于不同位置 (该问题在 VSCode 的 GUI 版 Git 中存在<!--某个易姓owner干过-->), 以便后续 blame 操作
@@ -282,4 +278,5 @@ PR 正文使用 **无序列表** 写明更改的每一项内容, 可以使用复
 如果内容包含代码等, 请一并提供测试的输入与输出的文本或截图, 最好可以附上完整的测试环境及相关可执行文件等
 
 <!--这也是常识喵-->
+
 PR 合并后, 请及时删除或更新分支. 特别是在使用压缩合并或变基合并后, 请 `Discard changes` 或直接删除分支, 以免在下一次 PR 后出现重复相同提交的问题
